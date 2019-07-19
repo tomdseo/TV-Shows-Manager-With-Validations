@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'first_app/css/style.css' %}">
+    <title>Update</title>
+</head>
+<body>
+    {% if messages %}
+    <ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    <a class="go-back-button" href="/shows">Go Back</a>
+    <main class="margin-auto col-md-4 order-md-2 mb-4">
+        <form action="/shows/{{show.id}}/update" method="POST">
+            {% csrf_token %}
+        <h4 class="mb-3">Update Show</h4>
+        <div class="mb-3">
+          <label for="address">Title</label>
+          <input name="show_title" value="{{show.title}}" type="text" class="form-control">
+        </div>
+        <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="firstName">Network</label>
+                <input name="show_network" value="{{show.network}}" type="text" class="form-control">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="releaseDate" id="release-date-label">Release Date</label>
+                <input name="show_date" type="date" class="form-control" id="release-date-form" required>
+              </div>
+        </div>
+        <div class="mb-3">
+            <label for="address">Description</label>
+            <textarea name="show_description" class="height150px scroll-view form-control" id="description">{{show.description}}</textarea>
+        </div>
+        <button class="display-block mb-3 btn btn-outline-primary btn-md" type="submit" name="form_button" value="pushed">Update</button>
+        </form>
+    </main>
+</body>
+</html>

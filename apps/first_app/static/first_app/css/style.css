@@ -1,0 +1,43 @@
+body {
+    padding: 50px;
+}
+
+.margin-auto {
+    margin: auto;
+}
+
+.height150px {
+    min-height: 150px;
+}
+
+.display-block {
+    display: block;
+    margin: auto;
+}
+
+.scroll-view {
+    resize: none;
+}
+
+.go-back-button {
+    display: inline-block;
+    float: right;
+    margin-top: -10px;
+    margin-right: 15px;
+}
+
+/* DatePicker Start */
+[type="date"] {
+  background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+}
+[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+#release-date-label {
+    display: block;
+}
+/* DatePicker End */
